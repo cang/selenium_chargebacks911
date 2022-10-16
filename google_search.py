@@ -28,7 +28,7 @@ def google_search(kw):
     driver.implicitly_wait(0.5)
     
     print("Put \"{}\" into search textbox and Enter...".format(kw))
-    q = driver.find_element(by=By.XPATH,value="/html/body/div[1]/div[3]/form/div[1]/div[1]/div[1]/div/div[2]/input")
+    q = driver.find_element(by=By.XPATH,value="//input[@type='text']")
     if(not q):
       print("not found text {}".format(kw))
       return rets;
@@ -83,7 +83,7 @@ def google_search(kw):
     
     return rets
 
-rets = google_search('SiGlaz')
+rets = google_search('Chargebacks911')
 #print(json.dumps(rets))
 for item in rets:
   print(item)
