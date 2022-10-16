@@ -61,7 +61,10 @@ def google_search(kw):
         
         eh3 = erow.find_element(By.XPATH,"descendant::a/h3")
         if(eh3):
-          item['title']= eh3.text
+          item['title'] = eh3.text
+          if(item['title']):
+            item['title'] = item['title'].encode('utf-8')
+            
           ea = eh3.find_element(By.XPATH,"..")
           if(ea):
             item['link'] = ea.get_attribute('href')
@@ -80,7 +83,7 @@ def google_search(kw):
     
     return rets
 
-rets = google_search('Chargebacks911')
+rets = google_search('SiGlaz')
 #print(json.dumps(rets))
 for item in rets:
   print(item)
